@@ -9,19 +9,31 @@
 <body>	
 	<script>
 		function secondHighest(arr) {
-			//Write your code here
-			
-		}
+  if (arr.length < 2) {
+    return -Infinity;  // No second-highest possible
+  }
 
-		function Main() {
-			var n = prompt("Enter the number of elements");
-			var arr = [];
-			for (var i = 0; i < n; i++) {
-				arr[i] = prompt("Enter element " + (i+1));
-			}
-			alert(secondHighest(arr));
-		}
-		Main();
+  let max = -Infinity;
+  let secondMax = -Infinity;
+
+  // First, find the maximum element
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+  }
+
+  // Now, find the second highest (less than the max)
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > secondMax && arr[i] < max) {
+      secondMax = arr[i];
+    }
+  }
+
+  // If all elements are the same or there's no second highest, secondMax will remain -Infinity
+  return secondMax;
+}
+
 	</script>
 
     <script type="text/javascript" src="./script.js">
